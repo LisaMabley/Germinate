@@ -3,9 +3,7 @@ package edu.mctc.lisa.kindling;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,24 +26,6 @@ public class GridActivity extends AppCompatActivity {
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
 
-        // Trying to set the color of icon in FAB to white TODO: make this work
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        // Get the resource
-//        Drawable plusIcon = ContextCompat.getDrawable(this, android.R.drawable.ic_input_add);
-        // Create new drawable from resource
-//        Drawable whiteIcon = plusIcon.getConstantState().newDrawable();
-        // Set the color filter
-//        whiteIcon.mutate().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
-        // Set new drawable as icon for FAB
-//        fab.setImageDrawable(whiteIcon);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showAddEntryDialog();
-            }
-        });
-
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
@@ -57,7 +37,6 @@ public class GridActivity extends AppCompatActivity {
 
     private void showAddEntryDialog() {
 
-        Log.d(TAG, "showDialog method");
         FragmentTransaction ft = getFragmentManager().beginTransaction();
 //        Fragment prev = getFragmentManager().findFragmentByTag("dialog");
 //        if (prev != null) {
