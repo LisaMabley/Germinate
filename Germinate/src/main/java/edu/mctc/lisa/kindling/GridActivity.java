@@ -1,5 +1,6 @@
 package edu.mctc.lisa.kindling;
 
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 public class GridActivity extends AppCompatActivity {
 
@@ -22,6 +24,9 @@ public class GridActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid);
+
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
@@ -38,10 +43,10 @@ public class GridActivity extends AppCompatActivity {
     private void showAddEntryDialog() {
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-//        Fragment prev = getFragmentManager().findFragmentByTag("dialog");
-//        if (prev != null) {
-//            ft.remove(prev);
-//        }
+        Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+        if (prev != null) {
+            ft.remove(prev);
+        }
         ft.addToBackStack(null);
 
         // Create and show the dialog.
@@ -53,6 +58,9 @@ public class GridActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_grid, menu);
+//        Button addTextEntry = (Button) findViewById(R.id.add_text_entry);
+//        menu.add(R.string.add_text_entry_action_name);
+//        menu.add(R.string.add_image_entry_action_name);
         return true;
     }
 
@@ -61,14 +69,23 @@ public class GridActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.add_text_entry:
+                Toast.makeText(GridActivity.this, "text entry",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.add_image_entry:
+                Toast.makeText(GridActivity.this, "image entry",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public class ImageAdapter extends BaseAdapter {
