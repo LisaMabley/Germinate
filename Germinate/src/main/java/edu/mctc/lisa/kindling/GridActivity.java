@@ -58,9 +58,7 @@ public class GridActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_grid, menu);
-//        Button addTextEntry = (Button) findViewById(R.id.add_text_entry);
-//        menu.add(R.string.add_text_entry_action_name);
-//        menu.add(R.string.add_image_entry_action_name);
+
         return true;
     }
 
@@ -69,6 +67,8 @@ public class GridActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+        // TODO: Figure out why this doesn't work on API19, and fix
 
         switch (item.getItemId()) {
             case R.id.add_text_entry:
@@ -113,7 +113,7 @@ public class GridActivity extends AppCompatActivity {
             if (convertView == null) {
                 // if it's not recycled, initialize some attributes
                 imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new GridView.LayoutParams(185, 185));
+                imageView.setLayoutParams(new GridView.LayoutParams(250, 250));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 imageView.setPadding(8, 8, 8, 8);
             } else {
