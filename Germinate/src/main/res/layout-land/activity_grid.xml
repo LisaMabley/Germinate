@@ -26,14 +26,14 @@
           android:id="@+id/gridview"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:columnWidth="120dp"
+          android:columnWidth="150dp"
           android:numColumns="auto_fit"
           android:verticalSpacing="10dp"
           android:horizontalSpacing="30dp"
           android:stretchMode="columnWidth"
-          android:paddingStart="80dp"
-          android:paddingEnd="115dp"
-          android:paddingTop="70dp"
+          android:paddingStart="16dp"
+          android:paddingEnd="16dp"
+          android:paddingTop="80dp"
           android:gravity="center"/>
 
     </android.support.design.widget.CoordinatorLayout>

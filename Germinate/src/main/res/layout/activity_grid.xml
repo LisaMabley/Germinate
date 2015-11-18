@@ -29,11 +29,11 @@
           android:columnWidth="120dp"
           android:numColumns="auto_fit"
           android:verticalSpacing="10dp"
-          android:horizontalSpacing="30dp"
+          android:horizontalSpacing="40dp"
           android:stretchMode="columnWidth"
-          android:paddingStart="30dp"
-          android:paddingEnd="115dp"
-          android:paddingTop="70dp"
+          android:paddingStart="16dp"
+          android:paddingEnd="16dp"
+          android:paddingTop="85dp"
           android:gravity="center"/>
 
     </android.support.design.widget.CoordinatorLayout>
