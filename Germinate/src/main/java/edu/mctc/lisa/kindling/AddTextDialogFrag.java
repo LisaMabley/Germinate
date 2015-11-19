@@ -39,8 +39,7 @@ public class AddTextDialogFrag extends DialogFragment {
         Button cancelButton = (Button) v.findViewById(R.id.cancel_button);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Cancel clicked",
-                        Toast.LENGTH_SHORT).show();
+                getActivity().getFragmentManager().popBackStack();
             }
         });
 
