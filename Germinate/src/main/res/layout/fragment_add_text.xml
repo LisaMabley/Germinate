@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_weight="1">
 
         <EditText
             android:layout_width="match_parent"
@@ -31,19 +32,23 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:paddingStart="24dp"
-            android:paddingEnd="24dp">
+            android:paddingEnd="24dp"
+            android:layout_gravity="top"
+            android:gravity="top">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"/>
+                android:padding="16dp"
+                android:layout_weight="1"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:layout_gravity="bottom"
-                android:hint="@string/input_prompt_tags"/>
+                android:hint="@string/input_prompt_tags"
+                android:layout_weight="1"
+                android:layout_gravity="start|top"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,21 +64,23 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="56dp"
         android:orientation="horizontal"
         style="?android:attr/buttonBarStyle">
 
         <Button
+            android:id="@+id/cancel_button"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="36dp"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_gravity="end"
             android:padding="8dp"
             android:text="@string/cancel"/>
 
         <Button
+            android:id="@+id/save_button"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="36dp"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_gravity="end"
             android:padding="8dp"
@@ -82,4 +89,3 @@
     </LinearLayout>
 
 </LinearLayout>
-

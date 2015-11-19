@@ -50,7 +50,7 @@ public class GridActivity extends AppCompatActivity {
         ft.addToBackStack(null);
 
         // Create and show the dialog.
-        AddEntryDialogFragment newFragment = AddEntryDialogFragment.newInstance();
+        AddTextDialogFrag newFragment = AddTextDialogFrag.newInstance();
         newFragment.show(ft, "add entry dialog");
     }
 
