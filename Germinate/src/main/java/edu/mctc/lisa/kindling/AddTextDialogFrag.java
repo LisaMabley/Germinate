@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 /**
  * Created by lisa on 11/12/15.
@@ -50,8 +49,7 @@ public class AddTextDialogFrag extends DialogFragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String entryText = entryTextField.getText().toString();
-                Toast.makeText(getActivity(), entryText,
-                        Toast.LENGTH_SHORT).show();
+                TextEntry newEntry = new TextEntry(entryText);
                 getActivity().getFragmentManager().popBackStack();
             }
         });

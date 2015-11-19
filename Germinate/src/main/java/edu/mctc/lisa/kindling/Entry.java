@@ -18,4 +18,8 @@ public abstract class Entry {
     protected Image mImage;
     protected ArrayList<String> mTags;
 
+    public Entry() {
+        mId = UUID.randomUUID();
+        mEntryDate = new Date();
+    }
 }
