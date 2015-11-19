@@ -72,8 +72,7 @@ public class GridActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.add_text_entry:
-                Toast.makeText(GridActivity.this, "text entry",
-                        Toast.LENGTH_SHORT).show();
+                showAddEntryDialog();
                 return true;
 
             case R.id.add_image_entry:

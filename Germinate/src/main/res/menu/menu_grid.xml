@@ -5,7 +5,7 @@
 
     <!-- Add new text icon to toolbar -->
     <item android:id="@+id/add_text_entry"
-          android:title="@string/add_text_entry_action_name"
+          android:title="@string/dialog_title_add_text"
           android:icon="@drawable/ic_add_text"
           android:orderInCategory="1"
           android:menuCategory="secondary"
@@ -13,7 +13,7 @@
 
     <!-- Add new image icon to toolbar -->
     <item android:id="@+id/add_image_entry"
-          android:title="@string/add_image_entry_action_name"
+          android:title="@string/dialog_title_add_image"
           android:icon="@drawable/ic_add_image"
           android:orderInCategory="2"
           android:menuCategory="secondary"
