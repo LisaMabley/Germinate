@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 /**
@@ -36,6 +37,8 @@ public class AddTextDialogFrag extends DialogFragment {
         af.setTitle(R.string.dialog_title_add_text);
         af.setCancelable(true);
 
+        final EditText entryTextField = (EditText) v.findViewById(R.id.entry_text);
+
         Button cancelButton = (Button) v.findViewById(R.id.cancel_button);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -46,8 +49,10 @@ public class AddTextDialogFrag extends DialogFragment {
         Button saveButton = (Button) v.findViewById(R.id.save_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "save clicked",
+                String entryText = entryTextField.getText().toString();
+                Toast.makeText(getActivity(), entryText,
                         Toast.LENGTH_SHORT).show();
+                getActivity().getFragmentManager().popBackStack();
             }
         });
 
