@@ -3,6 +3,8 @@ package edu.mctc.lisa.kindling.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import edu.mctc.lisa.kindling.database.EntryDbSchema.EntryTable;
 
 /**
@@ -16,6 +18,8 @@ public class EntryDatabaseHelper extends SQLiteOpenHelper {
     private static final int VERSION = 1;
     private static final String DATABASE_NAME = "entryDatabase.db";
 
+    private static final String TAG = "GERM.entryDbHelper";
+
     public EntryDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
     }
@@ -28,6 +32,7 @@ public class EntryDatabaseHelper extends SQLiteOpenHelper {
                         EntryTable.Columns.DATE + ", " +
                         EntryTable.Columns.TEXT + ")"
         );
+        Log.d(TAG, "Database created");
     }
 
     @Override

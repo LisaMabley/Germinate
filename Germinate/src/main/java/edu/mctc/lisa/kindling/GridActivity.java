@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
+import java.util.List;
+
 public class GridActivity extends AppCompatActivity {
 
     private static final String TAG = "GERM.gridactivity";
@@ -29,7 +31,7 @@ public class GridActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(this));
+//        gridview.setAdapter(new ImageAdapter(this));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
@@ -38,6 +40,7 @@ public class GridActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+        updateUI();
     }
 
     private void showAddEntryDialog() {
@@ -60,6 +63,20 @@ public class GridActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_grid, menu);
 
         return true;
+    }
+
+    private void updateUI() {
+        EntryManager entryManager = EntryManager.get(this);
+        List<Entry> entries = entryManager.getEntries();
+
+//        if (mAdapter == null) {
+//            mAdapter = new CrimeAdapter(crimes);
+//            mCrimeRecyclerView.setAdapter(mAdapter);
+//
+//        } else {
+//            mAdapter.setCrimes(crimes);
+//            mAdapter.notifyDataSetChanged();
+//        }
     }
 
     @Override

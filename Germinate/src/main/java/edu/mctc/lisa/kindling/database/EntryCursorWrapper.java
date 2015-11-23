@@ -3,6 +3,11 @@ package edu.mctc.lisa.kindling.database;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 
+import java.util.Date;
+import java.util.UUID;
+
+import edu.mctc.lisa.kindling.TextEntry;
+
 /**
  * Created by lisa on 11/19/15.
  */
@@ -13,16 +18,26 @@ public class EntryCursorWrapper extends CursorWrapper {
         super(cursor);
     }
 
-//    public TextEntry getEntry() {
+    public TextEntry getEntry() {
+        String uuidString = getString(getColumnIndex(EntryDbSchema.EntryTable.Columns.UUID));
+        long date = getLong(getColumnIndex(EntryDbSchema.EntryTable.Columns.DATE));
+        String text = getString(getColumnIndex(EntryDbSchema.EntryTable.Columns.TEXT));
+
+        TextEntry newTextEntry = new TextEntry(UUID.fromString(uuidString));
+        newTextEntry.setDate(new Date(date));
+        newTextEntry.setText(text);
+
+        return newTextEntry;
+    }
+
+//    public ImageEntry getImageEntry() {
 //        String uuidString = getString(getColumnIndex(EntryDbSchema.EntryTable.Columns.UUID));
 //        long date = getLong(getColumnIndex(EntryDbSchema.EntryTable.Columns.DATE));
 //        String text = getString(getColumnIndex(EntryDbSchema.EntryTable.Columns.TEXT));
 //
-//        TextEntry newTextEntry = new TextEntry(UUID.fromString(uuidString));
-//        newTextEntry.setTitle(title);
-//        newTextEntry.setDate(new Date(date));
-//        newTextEntry.setText(isSolved != 0);
+//        TextEntry newImageEntry = new ImageEntry(UUID.fromString(uuidString));
+//        newImageEntry.setDate(new Date(date));
 //
-//        return newTextEntry;
+//        return newImageEntry;
 //    }
 }

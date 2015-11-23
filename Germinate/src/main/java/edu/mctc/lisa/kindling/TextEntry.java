@@ -1,6 +1,6 @@
 package edu.mctc.lisa.kindling;
 
-import android.util.Log;
+import java.util.UUID;
 
 /**
  * Created by lisa on 11/16/15.
@@ -13,6 +13,9 @@ public class TextEntry extends Entry {
     public TextEntry (String text) {
         super();
         mText = text;
-        Log.d(TAG, this.toString());
+    }
+
+    public TextEntry (UUID id) {
+        super(id);
     }
 }

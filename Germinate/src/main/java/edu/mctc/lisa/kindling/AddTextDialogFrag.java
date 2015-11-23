@@ -49,7 +49,7 @@ public class AddTextDialogFrag extends DialogFragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String entryText = entryTextField.getText().toString();
-                TextEntry newEntry = new TextEntry(entryText);
+                EntryManager.sEntryManager.addEntry(new TextEntry(entryText));
                 getActivity().getFragmentManager().popBackStack();
             }
         });

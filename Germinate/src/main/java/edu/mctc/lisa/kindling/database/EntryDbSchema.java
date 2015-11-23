@@ -14,7 +14,6 @@ public class EntryDbSchema {
             public static final String UUID = "uuid";
             public static final String DATE = "date";
             public static final String TEXT = "text";
-//            public static final String IMAGEFILENAME = "image_file_name";
         }
     }
 }
