@@ -12,6 +12,7 @@ public abstract class Entry {
     protected UUID mId;
     protected Date mEntryDate;
     protected String mText;
+    protected int mType;
 //    protected Image mImage;
 //    protected ArrayList<String> mTags;
 
@@ -39,6 +40,10 @@ public abstract class Entry {
 
     public Date getDate() {
         return mEntryDate;
+    }
+
+    public int getType() {
+        return mType;
     }
 
     // Setters

@@ -10,6 +10,7 @@ import edu.mctc.lisa.kindling.TextEntry;
 
 /**
  * Created by lisa on 11/19/15.
+ * Adapted from Big Nerd Ranch Guide to Android Programming, 2nd Edition
  */
 
 public class EntryCursorWrapper extends CursorWrapper {
