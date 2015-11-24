@@ -9,6 +9,10 @@
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_gravity="left|top"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"/>
+        android:padding="8dp"
+        android:textStyle="normal"
+        android:maxLines="5"
+        android:minLines="3"
+        android:textSize="24dp"/>
 
 </LinearLayout>

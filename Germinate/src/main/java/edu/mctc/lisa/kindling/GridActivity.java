@@ -10,8 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
-import java.util.List;
+import java.util.ArrayList;
 
 public class GridActivity extends AppCompatActivity {
 
@@ -51,7 +50,7 @@ public class GridActivity extends AppCompatActivity {
         ft.addToBackStack(null);
 
         // Create and show the dialog.
-        AddTextDialogFrag newFragment = AddTextDialogFrag.newInstance();
+        AddTextDialogFrag newFragment = new AddTextDialogFrag();
         newFragment.show(ft, "add entry dialog");
     }
 
@@ -66,7 +65,7 @@ public class GridActivity extends AppCompatActivity {
     private void setupUiElements()
     {
         mEntryLoader = new EntryLoader();
-        mEntryLoader.LoadMoreItems(100);
+        mEntryLoader.loadMoreItems(100);
 
         EntryRecyclerAdapter era = new EntryRecyclerAdapter(mEntryLoader);
         mEntryRecyclerView = (RecyclerView) findViewById(R.id.recycler_gridview);
@@ -80,7 +79,7 @@ public class GridActivity extends AppCompatActivity {
 
     private void updateUI() {
         EntryManager entryManager = EntryManager.get(this);
-        List<Entry> entries = entryManager.getEntries();
+        ArrayList<Entry> entries = entryManager.getEntries();
 
         if (mAdapter == null) {
             mAdapter = new EntryRecyclerAdapter(mEntryLoader);
@@ -88,6 +87,7 @@ public class GridActivity extends AppCompatActivity {
 
         } else {
             mAdapter.setEntries(entries);
+            // CONSIDER CHANGING JUST ONE. (THANKS, KYLE!!)
             mAdapter.notifyDataSetChanged();
         }
     }

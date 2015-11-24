@@ -1,9 +1,10 @@
 package edu.mctc.lisa.kindling;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-/**
+/*
  * Created by lisa on 11/12/15.
  */
 
@@ -12,12 +13,7 @@ public abstract class Entry {
     protected UUID mId;
     protected Date mEntryDate;
     protected String mText;
-    protected int mType;
-//    protected Image mImage;
-//    protected ArrayList<String> mTags;
-
-    public static final int ENTRYTYPE_TEXT = 0;
-    public static final int ENTRYTYPE_IMAGE = 1;
+    protected ArrayList<String> mTags;
 
     // Constructors
     public Entry() {
@@ -40,10 +36,6 @@ public abstract class Entry {
 
     public Date getDate() {
         return mEntryDate;
-    }
-
-    public int getType() {
-        return mType;
     }
 
     // Setters

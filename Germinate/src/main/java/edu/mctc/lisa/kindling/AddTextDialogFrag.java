@@ -9,22 +9,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-/**
+/*
  * Created by lisa on 11/12/15.
  */
 
 public class AddTextDialogFrag extends DialogFragment {
 
     private static final String TAG = "GERM.addentrydialogfrag";
-
-    static AddTextDialogFrag newInstance() {
-        AddTextDialogFrag f = new AddTextDialogFrag();
-//        Bundle args = new Bundle();
-//        args.putInt("num", num);
-//        f.setArguments(args);
-//
-        return f;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

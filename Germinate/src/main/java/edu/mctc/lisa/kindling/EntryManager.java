@@ -4,17 +4,15 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import edu.mctc.lisa.kindling.database.EntryCursorWrapper;
 import edu.mctc.lisa.kindling.database.EntryDatabaseHelper;
 import edu.mctc.lisa.kindling.database.EntryDbSchema.EntryTable;
 
-/**
+/*
  * Created by lisa on 11/22/15.
  */
 
@@ -40,12 +38,11 @@ public class EntryManager {
 
     public void addEntry(Entry e) {
         ContentValues values = getContentValues(e);
-        Log.d(TAG, values.toString());
         mDatabase.insert(EntryTable.DBNAME, null, values);
     }
 
-    public List<Entry> getEntries() {
-        List<Entry> entries = new ArrayList<>();
+    public ArrayList<Entry> getEntries() {
+        ArrayList<Entry> entries = new ArrayList<>();
         EntryCursorWrapper cursor = queryEntries(null, null);
 
         try {

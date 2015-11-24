@@ -7,7 +7,7 @@ import android.util.Log;
 
 import edu.mctc.lisa.kindling.database.EntryDbSchema.EntryTable;
 
-/**
+/*
  * Created by lisa on 11/19/15.
  * Adapted from Big Nerd Ranch Guide to Android Programming, 2nd Edition
  *
