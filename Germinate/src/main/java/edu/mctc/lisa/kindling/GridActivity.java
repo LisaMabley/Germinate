@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class GridActivity extends AppCompatActivity {
@@ -69,7 +70,8 @@ public class GridActivity extends AppCompatActivity {
 
         EntryRecyclerAdapter era = new EntryRecyclerAdapter(mEntryLoader);
         mEntryRecyclerView = (RecyclerView) findViewById(R.id.recycler_gridview);
-        StaggeredGridLayoutManager sglm = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        StaggeredGridLayoutManager sglm = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        sglm.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
 
         mEntryRecyclerView.setLayoutManager(sglm);
         mEntryRecyclerView.setAdapter(era);
@@ -116,59 +118,4 @@ public class GridActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-//    public class ImageAdapter extends BaseAdapter {
-//        private Context mContext;
-//
-//        public ImageAdapter(Context c) {
-//            mContext = c;
-//        }
-//
-//        public int getCount() {
-//            return mThumbIds.length;
-//        }
-//
-//        public Object getItem(int position) {
-//            return null;
-//        }
-//
-//        public long getItemId(int position) {
-//            return 0;
-//        }
-
-        // create a new ImageView for each item referenced by the Adapter
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//            ImageView imageView;
-//            if (convertView == null) {
-//                // if it's not recycled, initialize some attributes
-//                imageView = new ImageView(mContext);
-//                imageView.setLayoutParams(new GridView.LayoutParams(300, 300));
-//                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//                imageView.setPadding(8, 8, 8, 8);
-//            } else {
-//                imageView = (ImageView) convertView;
-//            }
-//
-//            imageView.setImageResource(mThumbIds[position]);
-//            return imageView;
-//        }
-
-        // references to our images
-//        private Integer[] mThumbIds = {
-//                R.drawable.sample_01, R.drawable.sample_02,
-//                R.drawable.sample_03, R.drawable.sample_04,
-//                R.drawable.sample_05, R.drawable.sample_06,
-//                R.drawable.sample_07, R.drawable.sample_02,
-//                R.drawable.sample_03, R.drawable.sample_04,
-//                R.drawable.sample_05, R.drawable.sample_06,
-//                R.drawable.sample_01, R.drawable.sample_07,
-//                R.drawable.sample_03, R.drawable.sample_04,
-//                R.drawable.sample_05, R.drawable.sample_06,
-//                R.drawable.sample_01, R.drawable.sample_02,
-//                R.drawable.sample_07, R.drawable.sample_04,
-//                R.drawable.sample_05, R.drawable.sample_06,
-//                R.drawable.sample_01, R.drawable.sample_02,
-//                R.drawable.sample_03, R.drawable.sample_07,
-//                R.drawable.sample_05, R.drawable.sample_06
-//        };
 }

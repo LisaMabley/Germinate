@@ -1,5 +1,7 @@
 package edu.mctc.lisa.kindling;
 
+import android.util.Log;
+
 import java.util.UUID;
 
 /*
@@ -12,7 +14,9 @@ public class TextEntry extends Entry {
 
     public TextEntry (String text) {
         super();
+        Log.d(TAG, "new textentry");
         mText = text;
+//        EntryManager.sEntryManager.addEntry(this);
     }
 
     public TextEntry (UUID id) {
