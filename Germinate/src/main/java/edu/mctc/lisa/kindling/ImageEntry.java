@@ -6,15 +6,13 @@ package edu.mctc.lisa.kindling;
 
 import android.graphics.Bitmap;
 import android.util.Log;
-import android.widget.ImageView;
 
 import java.util.UUID;
 
 public class ImageEntry extends Entry {
 
     protected Bitmap mImage;
-    protected int mResourceId;
-    protected ImageView mImageView;
+    public int mResourceId;
     private static int COUNTER = 0;
 
     private static final String TAG = "GERM.imageentry";

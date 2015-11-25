@@ -27,8 +27,7 @@ public class EntryLoader {
         for (int i = CurrentPageValue; i < CurrentPageValue + itemsPerPage; i++) {
 
             if (i%2 == 0) {
-                Log.d(TAG, "divisible by two");
-                mEntries.add(new TextEntry("’Twas brillig, and the slithy toves" +
+                mEntries.add(new TextEntry("’Twas brillig, and the slithy toves " +
                         "Did gyre and gimble in the wabe:"));
 
             } else if (i%3 == 0) {

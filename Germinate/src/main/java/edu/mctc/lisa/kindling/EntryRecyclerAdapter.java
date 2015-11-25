@@ -38,7 +38,7 @@ public class EntryRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
                 return new ImageViewHolder(imageView);
 
             default:
-                // May cause crash if there's a type in your list you forgot about...
+                // Should not get to here
                 return null;
         }
     }
@@ -49,6 +49,9 @@ public class EntryRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         if (gridItem.getClass() == TextEntry.class) {
             ((TextViewHolder) holder).setPreviewText(gridItem.mText);
+
+        } else if (gridItem.getClass() == ImageEntry.class) {
+            ((ImageViewHolder) holder).setPreviewImage(((ImageEntry)gridItem).mResourceId);
         }
     }
 

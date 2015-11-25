@@ -1,6 +1,5 @@
 package edu.mctc.lisa.kindling;
 
-import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,7 +17,7 @@ public class ImageViewHolder extends RecyclerView.ViewHolder {
         mPreviewImage = (ImageView) itemView.findViewById(R.id.grid_preview_image);
     }
 
-    public void setPreviewImage(Bitmap image) {
-        mPreviewImage.setImageBitmap(image);
+    public void setPreviewImage(int resourceId) {
+        mPreviewImage.setImageResource(resourceId);
     }
 }
