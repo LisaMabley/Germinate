@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -24,6 +25,7 @@ public class EntryManager {
     private static final String TAG = "GERM.entrymanager";
 
     public static EntryManager get(Context context) {
+        Log.d(TAG, "get method");
         if (sEntryManager == null) {
             sEntryManager = new EntryManager(context);
         }
@@ -33,10 +35,12 @@ public class EntryManager {
 
     private EntryManager(Context context) {
         mContext = context.getApplicationContext();
+        Log.d(TAG, "constructor");
         mDatabase = new EntryDatabaseHelper(mContext).getWritableDatabase();
     }
 
     public void addEntry(Entry e) {
+        Log.d(TAG, "Adding entry to database");
         ContentValues values = getContentValues(e);
         mDatabase.insert(EntryTable.DBNAME, null, values);
     }

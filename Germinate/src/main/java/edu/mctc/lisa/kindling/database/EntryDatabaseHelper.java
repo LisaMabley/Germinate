@@ -22,6 +22,7 @@ public class EntryDatabaseHelper extends SQLiteOpenHelper {
 
     public EntryDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
+        Log.d(TAG, "constructor");
     }
 
     @Override
@@ -37,6 +38,5 @@ public class EntryDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 }

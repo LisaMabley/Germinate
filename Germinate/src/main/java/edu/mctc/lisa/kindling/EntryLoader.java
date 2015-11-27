@@ -27,23 +27,31 @@ public class EntryLoader {
         for (int i = CurrentPageValue; i < CurrentPageValue + itemsPerPage; i++) {
 
             if (i%2 == 0) {
-                mEntries.add(new TextEntry("’Twas brillig, and the slithy toves " +
-                        "Did gyre and gimble in the wabe:"));
+
+                ImageEntry newImageEntry = new ImageEntry();
+//                EntryManager.sEntryManager.addEntry(newImageEntry);
+                mEntries.add(newImageEntry);
 
             } else if (i%3 == 0) {
-                Log.d(TAG, "divisible by three");
-                mEntries.add(new ImageEntry());
+                TextEntry newTextEntry = new TextEntry("’Twas brillig, and the slithy toves " +
+                        "Did gyre and gimble in the wabe:");
+                EntryManager.sEntryManager.addEntry(newTextEntry);
+                mEntries.add(newTextEntry);
+                Log.d(TAG, newTextEntry.toString());
 
             } else {
-                mEntries.add(new TextEntry("Never gonna give you up, never gonna let you down"));
+                TextEntry newTextEntry = new TextEntry("Never gonna give you up, never gonna let you down");
+                EntryManager.sEntryManager.addEntry(newTextEntry);
+                mEntries.add(newTextEntry);
+                Log.d(TAG, newTextEntry.toString());
             }
-
         }
 
         // normally you'd check to see if the number of items returned is less than
         // the number requested, i.e. you've run out, and then set this accordingly.
         CanLoadMoreItems = true;
-        CurrentPageValue = mEntries.size();
+        CurrentPageValue = 24;
+//        CurrentPageValue = mEntries.size();
         isBusy = false;
     }
 }

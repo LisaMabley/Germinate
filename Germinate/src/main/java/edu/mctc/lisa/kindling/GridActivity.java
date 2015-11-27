@@ -18,6 +18,7 @@ public class GridActivity extends AppCompatActivity {
     private RecyclerView mEntryRecyclerView;
     private EntryRecyclerAdapter mAdapter;
     private EntryLoader mEntryLoader;
+    private EntryManager mEntryManager;
 
     private static final String TAG = "GERM.gridactivity";
 
@@ -28,6 +29,8 @@ public class GridActivity extends AppCompatActivity {
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+
+        mEntryManager = EntryManager.get(this);
 
         setupUiElements();
         updateUI();
@@ -80,8 +83,7 @@ public class GridActivity extends AppCompatActivity {
     }
 
     private void updateUI() {
-        EntryManager entryManager = EntryManager.get(this);
-        ArrayList<Entry> entries = entryManager.getEntries();
+        ArrayList<Entry> entries = mEntryManager.getEntries();
 
         if (mAdapter == null) {
             mAdapter = new EntryRecyclerAdapter(mEntryLoader);

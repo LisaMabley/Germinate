@@ -5,7 +5,6 @@ package edu.mctc.lisa.kindling;
  */
 
 import android.graphics.Bitmap;
-import android.util.Log;
 
 import java.util.UUID;
 
@@ -33,7 +32,6 @@ public class ImageEntry extends Entry {
         } else {
             COUNTER ++;
         }
-        Log.d(TAG, "counter: " + COUNTER);
 
 //        EntryManager.sEntryManager.addEntry(this);
     }

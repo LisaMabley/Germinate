@@ -13,7 +13,6 @@ public class TextEntry extends Entry {
     public TextEntry (String text) {
         super();
         mText = text;
-//        EntryManager.sEntryManager.addEntry(this);
     }
 
     public TextEntry (UUID id) {
