@@ -16,9 +16,9 @@ import java.util.ArrayList;
 public class GridActivity extends AppCompatActivity {
 
     private RecyclerView mEntryRecyclerView;
-    private EntryRecyclerAdapter mAdapter;
-    private EntryLoader mEntryLoader;
-    private EntryManager mEntryManager;
+    public static EntryRecyclerAdapter sAdapter;
+    public static EntryLoader sEntryLoader;
+    public static EntryManager sEntryManager;
 
     private static final String TAG = "GERM.gridactivity";
 
@@ -30,7 +30,7 @@ public class GridActivity extends AppCompatActivity {
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
-        mEntryManager = EntryManager.get(this);
+        sEntryManager = EntryManager.get(this);
 
         setupUiElements();
         updateUI();
@@ -68,10 +68,10 @@ public class GridActivity extends AppCompatActivity {
 
     private void setupUiElements()
     {
-        mEntryLoader = new EntryLoader();
-        mEntryLoader.loadMoreItems(100);
+        sEntryLoader = new EntryLoader();
+        sEntryLoader.loadMoreItems(100);
 
-        EntryRecyclerAdapter era = new EntryRecyclerAdapter(mEntryLoader);
+        EntryRecyclerAdapter era = new EntryRecyclerAdapter(sEntryLoader);
         mEntryRecyclerView = (RecyclerView) findViewById(R.id.recycler_gridview);
         StaggeredGridLayoutManager sglm = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         sglm.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
@@ -82,17 +82,18 @@ public class GridActivity extends AppCompatActivity {
         // --- snip --- we'll come back to the infinite scrolling in a sec...
     }
 
-    private void updateUI() {
-        ArrayList<Entry> entries = mEntryManager.getEntries();
+    public void updateUI() {
+        ArrayList<Entry> entries = sEntryManager.getEntries();
 
-        if (mAdapter == null) {
-            mAdapter = new EntryRecyclerAdapter(mEntryLoader);
-            mEntryRecyclerView.setAdapter(mAdapter);
+        if (sAdapter == null) {
+            sAdapter = new EntryRecyclerAdapter(sEntryLoader);
+            mEntryRecyclerView.setAdapter(sAdapter);
 
         } else {
-            mAdapter.setEntries(entries);
+            sAdapter.setEntries(entries);
             // CONSIDER CHANGING JUST ONE. (THANKS, KYLE!!)
-            mAdapter.notifyDataSetChanged();
+//            sAdapter.notifyItemChanged();
+            sAdapter.notifyDataSetChanged();
         }
     }
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 
 public class EntryLoader {
-    public ArrayList<Entry> mEntries;
+    public static ArrayList<Entry> mEntries;
     public boolean isBusy;
     public int CurrentPageValue;
     public boolean CanLoadMoreItems;
@@ -50,7 +50,7 @@ public class EntryLoader {
         // normally you'd check to see if the number of items returned is less than
         // the number requested, i.e. you've run out, and then set this accordingly.
         CanLoadMoreItems = true;
-        CurrentPageValue = 24;
+        CurrentPageValue = 14;
 //        CurrentPageValue = mEntries.size();
         isBusy = false;
     }
